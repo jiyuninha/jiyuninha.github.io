@@ -32,6 +32,25 @@
       }
     </style>
   </noscript>
+  <style>
+    .social-nav .nav-link,
+    .lab-links .nav-link {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+    }
+    .social-nav .nav-link i,
+    .lab-links .nav-link i {
+      font-size: 1.1rem;
+    }
+    /* 학사모만 미세 보정(살짝 내려주기) */
+    .social-nav .nav-link .icon,
+    .lab-links .nav-link .icon {
+      width: 20px; height: 20px;
+      vertical-align: middle;
+      margin-top: 0; /* 필요시 top 미세조정 */
+    }
+  </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176527795-1"></script>
   <script>
