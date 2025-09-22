@@ -50,6 +50,25 @@
       vertical-align: middle;
       margin-top: 0; /* 필요시 top 미세조정 */
     }
+    .typing-animation {
+      font-family: monospace;           /* 글자 간격 일정하게 */
+      white-space: nowrap;              /* 줄바꿈 방지 */
+      overflow: hidden;                 /* 타이핑 영역 밖 글자 숨김 */
+      border-right: 2px solid #0019F4;  /* 깜박이는 커서 */
+      width: 0;                         /* 시작은 글자 숨김 */
+      animation: typing 4s steps(40, end) forwards,
+                 blink-caret .75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #0019F4; }
+    }
   </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176527795-1"></script>
@@ -93,7 +112,7 @@
                 <div class="mt-5">
                   <p class="lead text-uppercase mb-1">Hello!</p>
                   <h1 class="intro-title marker" data-aos="fade-left" data-aos-delay="50">Ji-yun Lee</h1>
-                  <p class="lead fw-normal mt-3" data-aos="fade-up" data-aos-delay="100">Interested in Physical AI and Robotics</p>
+                  <p class="lead fw-normal mt-3 typing-animation" data-aos="fade-up" data-aos-delay="100">Interested in Physical AI and Robotics</p>
                   <div class="social-nav" data-aos="fade-up" data-aos-delay="200">
                     <nav role="navigation">
                       <ul class="nav justify-content-left">
