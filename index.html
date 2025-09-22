@@ -50,28 +50,36 @@
       vertical-align: middle;
       margin-top: 0; /* 필요시 top 미세조정 */
     }
-    .typing-animation {
+    .typing-animation { 
+      display: block; 
+    }
+    
+    /* 실제 타이핑 효과는 안쪽 span에만 적용 */
+    .typing-text {
       font-family: monospace;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #5d00b4ec; /* 깜박이는 커서 */
-      display: inline-block;
-        
-      /* 7초 동안 타이핑+삭제 → 무한 반복 */
+      border-right: 2px solid #5d00b4ec; /* 커서 */
+      display: inline-block;             /* width 애니메이션용 */
+      width: 0;
+    
+      /* 타이핑→유지→삭제→반복 */
       animation: typing 7s steps(70, end) infinite,
                  blink-caret .75s step-end infinite;
     }
     
+    /* 0→100%→0 왕복 */
     @keyframes typing {
-      0%   { width: 0 }       /* 시작: 아무 글자도 없음 */
-      40%  { width: 100% }    /* 0~40% 구간: 글자 다 타이핑 */
-      60%  { width: 100% }    /* 40~60% 구간: 글자 유지 */
-      100% { width: 0 }       /* 60~100% 구간: 다시 지워짐 */
+      0%   { width: 0 }
+      40%  { width: 100% }
+      60%  { width: 100% }
+      100% { width: 0 }
     }
     
+    /* 커서 깜박임 */
     @keyframes blink-caret {
       from, to { border-color: transparent }
-      50% { border-color: #5d00b4ec; }
+      50% { border-color: #5d00b4ec }
     }
   </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -116,7 +124,7 @@
                 <div class="mt-5">
                   <p class="lead text-uppercase mb-1">Hello!</p>
                   <h1 class="intro-title marker" data-aos="fade-left" data-aos-delay="50">Ji-yun Lee</h1>
-                  <p class="lead fw-normal mt-3 typing-animation" data-aos="fade-up" data-aos-delay="100">Interested in Physical AI and Robotics</p>
+                  <p class="lead fw-normal mt-3 typing-animation" data-aos="fade-up" data-aos-delay="100"><span class="typing-text">Interested in Physical AI and Robotics</span></p>
                   <div class="social-nav" data-aos="fade-up" data-aos-delay="200">
                     <nav role="navigation">
                       <ul class="nav justify-content-left">
