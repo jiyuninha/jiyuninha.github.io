@@ -51,23 +51,27 @@
       margin-top: 0; /* 필요시 top 미세조정 */
     }
     .typing-animation {
-      font-family: monospace;           /* 글자 간격 일정하게 */
-      white-space: nowrap;              /* 줄바꿈 방지 */
-      overflow: hidden;                 /* 타이핑 영역 밖 글자 숨김 */
-      border-right: 2px solid #0019F4;  /* 깜박이는 커서 */
-      width: 0;                         /* 시작은 글자 숨김 */
-      animation: typing 4s steps(40, end) forwards,
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #5d00b4ec; /* 깜박이는 커서 */
+      display: inline-block;
+        
+      /* 7초 동안 타이핑+삭제 → 무한 반복 */
+      animation: typing 7s steps(70, end) infinite,
                  blink-caret .75s step-end infinite;
     }
-
+    
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      0%   { width: 0 }       /* 시작: 아무 글자도 없음 */
+      40%  { width: 100% }    /* 0~40% 구간: 글자 다 타이핑 */
+      60%  { width: 100% }    /* 40~60% 구간: 글자 유지 */
+      100% { width: 0 }       /* 60~100% 구간: 다시 지워짐 */
     }
-
+    
     @keyframes blink-caret {
       from, to { border-color: transparent }
-      50% { border-color: #0019F4; }
+      50% { border-color: #5d00b4ec; }
     }
   </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
